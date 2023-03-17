@@ -11,6 +11,11 @@ namespace ShipsGame.Klasy
 {
     public static class Rysowanie
     {
+        private static readonly Bitmap hitImage = 
+            Properties.Resources.hitImage;
+        private static readonly Bitmap splashImage = 
+            Properties.Resources.splashImage;
+
         private const int PRZEZROCZYSTOSC = 255;
 
         private const int SZEROKOSC_RAMKI = 35;

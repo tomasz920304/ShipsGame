@@ -47,10 +47,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Klasy\Gra.cs" />
+    <Compile Include="Klasy\Gracz.cs" />
     <Compile Include="Klasy\Koordynaty.cs" />
+    <Compile Include="Okna\Rozgrywka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Okna\Rozgrywka.Designer.cs">
+      <DependentUpon>Rozgrywka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Okna\UstawienieStatkow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Okna\UstawienieStatkow.Designer.cs">
+      <DependentUpon>UstawienieStatkow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Klasy\Rysowanie.cs" />
+    <EmbeddedResource Include="Okna\Rozgrywka.resx">
+      <DependentUpon>Rozgrywka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Okna\UstawienieStatkow.resx">
+      <DependentUpon>UstawienieStatkow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
