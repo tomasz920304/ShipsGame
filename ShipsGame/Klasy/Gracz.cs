@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShipsGame.Klasy
 {
-    internal class Gracz
+    public class Gracz
     {
         public string Nazwa;
         // zestaw wszystkich pól gracza
