@@ -32,7 +32,7 @@ namespace ShipsGame.Okna
             Gra.Uzytkownik = new Gracz();
             Gra.Komputer = new Gracz();
             // index o wartości 0 wskazywać będzie na pierwszy statek do rozmieszczenia
-            indexAktualnegoStatku = 2;
+            indexAktualnegoStatku = 0;
             lblNazwaGracza.Visible = false;
             btnDalej.Enabled = false;
         }
