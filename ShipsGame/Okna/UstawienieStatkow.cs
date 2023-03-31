@@ -88,5 +88,61 @@ namespace ShipsGame.Okna
         {
             poziom = !poziom;
         }
+
+        private void planszaGracza_Click(object sender, EventArgs e)
+        {
+            // sprawdzamy czy można umieścić statek w wybranym polu planszy
+            if (Gra.CzyMoznaPostawicStatek(indexAktualnegoStatku, myszX, myszY, poziom, Gra.Uzytkownik.Plansza))
+            {
+                // jeśli można postawić statek to ustawiamy dane pole tablicy na true
+                rozmieszczoneStatki[indexAktualnegoStatku] = true;
+                // umieszczenie statku na planszy
+                Gra.RozmiescStatek(indexAktualnegoStatku, myszX, myszY, poziom, Gra.Uzytkownik.Plansza);
+                // odświeżenie planszy gracza
+                planszaGracza.Refresh();
+                // zwiększenie indeksu
+                if (indexAktualnegoStatku < Gra.RozmiaryStatkow.Length)
+                {
+                    indexAktualnegoStatku++;
+                }
+                // jeśli wszystkie statki zostały rozstawione,
+                // to odblokowany zostanie przycisk Dalej
+                // a zablokowana plansza gracza
+                int pos = Array.IndexOf(rozmieszczoneStatki, false);
+                if (pos == -1)
+                {
+                    btnDalej.Enabled = true;
+                    planszaGracza.Enabled = false;
+                }
+            }
+        }
+
+        private void planszaGracza_Paint(object sender, PaintEventArgs e)
+        {
+            Rysowanie.RysujUstawioneKomorki(Gra.Uzytkownik.Plansza, e);
+        }
+
+        private void btnDalej_Click(object sender, EventArgs e)
+        {
+            // sprawdzamy, czy pole tekstowe z nazwą gracza jest puste
+            if (txtNazwaGracza.Text == "")
+            {
+                // wyświetlenie komunikatu
+                lblNazwaGracza.Visible = true;
+            }
+            else
+            {
+                Gra.Uzytkownik.Nazwa = txtNazwaGracza.Text;
+                Gra.Komputer.Nazwa = "Komputer";
+                Gra.RozmieszczenieStatkowKomputera();
+                // utworzenie obiektu okna Rozgrywka
+                Rozgrywka rozgrywka = new Rozgrywka();
+                // wyświetlenie nowego okna
+                rozgrywka.Show();
+                // ukrycie okna UstawienieStatkow
+                Hide();
+            }
+
+        }
     }
 }
