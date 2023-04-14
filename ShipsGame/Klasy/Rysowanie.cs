@@ -58,7 +58,7 @@ namespace ShipsGame.Klasy
             }
         }
 
-        /*public static void RysujKomorki(bool[,] odkryteKomorki, int[,] komorki, PaintEventArgs e)
+        public static void RysujKomorki(bool[,] odkryteKomorki, int[,] komorki, PaintEventArgs e)
         {
             for (int x = 0; x < Gracz.ROZMIAR_PLANSZY; x++)
             {
@@ -77,19 +77,19 @@ namespace ShipsGame.Klasy
                     }
                 }
             }
-        }*/
+        }
 
         private static void RysujTrafionaKomorke(int komorkaX, int komorkaY, PaintEventArgs e)
         {
-
+            e.Graphics.DrawImage(hitImage, komorkaX * SZEROKOSC_KOMORKI, komorkaY * WYSOKOSC_KOMORKI);
         }
 
         private static void RysujNietrafionaKomorke(int komorkaX, int komorkaY, PaintEventArgs e)
         {
-
+            e.Graphics.DrawImage(splashImage, komorkaX * SZEROKOSC_KOMORKI, komorkaY * WYSOKOSC_KOMORKI);
         }
 
-        /*public static void RysujZatopioneStatki(int[,] komorki, int[] trafieniaStatku, PaintEventArgs e)
+        public static void RysujZatopioneStatki(int[,] komorki, int[] trafieniaStatku, PaintEventArgs e)
         {
             for (int aktualnyStatek = 0; aktualnyStatek < Gra.RozmiaryStatkow.Length; aktualnyStatek++)
             {
@@ -107,6 +107,6 @@ namespace ShipsGame.Klasy
                     }
                 }
             }
-        }*/
+        }
     }
 }

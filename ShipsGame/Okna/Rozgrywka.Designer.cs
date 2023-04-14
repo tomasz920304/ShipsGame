@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.planszaKomputera = new System.Windows.Forms.PictureBox();
             this.planszaGracza = new System.Windows.Forms.PictureBox();
+            this.timerRuchKomputera = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.planszaKomputera)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.planszaGracza)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +46,9 @@
             this.planszaKomputera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.planszaKomputera.TabIndex = 0;
             this.planszaKomputera.TabStop = false;
+            this.planszaKomputera.Click += new System.EventHandler(this.planszaKomputera_Click);
+            this.planszaKomputera.Paint += new System.Windows.Forms.PaintEventHandler(this.planszaKomputera_Paint);
+            this.planszaKomputera.MouseMove += new System.Windows.Forms.MouseEventHandler(this.planszaKomputera_MouseMove);
             // 
             // planszaGracza
             // 
@@ -55,6 +60,12 @@
             this.planszaGracza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.planszaGracza.TabIndex = 1;
             this.planszaGracza.TabStop = false;
+            this.planszaGracza.Paint += new System.Windows.Forms.PaintEventHandler(this.planszaGracza_Paint);
+            // 
+            // timerRuchKomputera
+            // 
+            this.timerRuchKomputera.Interval = 1000;
+            this.timerRuchKomputera.Tick += new System.EventHandler(this.timerRuchKomputera_Tick);
             // 
             // Rozgrywka
             // 
@@ -65,6 +76,7 @@
             this.Controls.Add(this.planszaKomputera);
             this.Name = "Rozgrywka";
             this.Text = "Rozgrywka";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Rozgrywka_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.planszaKomputera)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.planszaGracza)).EndInit();
             this.ResumeLayout(false);
@@ -75,5 +87,6 @@
 
         private System.Windows.Forms.PictureBox planszaKomputera;
         private System.Windows.Forms.PictureBox planszaGracza;
+        private System.Windows.Forms.Timer timerRuchKomputera;
     }
 }
